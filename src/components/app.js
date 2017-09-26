@@ -1,13 +1,14 @@
 import React from 'react';
-import './app.css';
-import logo from './imgs/logo.svg';
+import { Route, Link } from 'react-router-dom';
+import TodoList from './todo_list';
+import AddForm from './add_form';
+import SingleItem from './single_item';
 
 const App = () => (
-    <div>
-        <div className="app">
-            <img src={logo} className="rotate"/>
-            <h1>Welcome to React!</h1>
-        </div>
+    <div className="container mt-5 text-center">
+        <Route exact path="/" component={TodoList}/>
+        <Route path="/add-todo" component={AddForm}/>
+        <Route path="/view-item/:id" component={SingleItem}/>
     </div>
 );
 
