@@ -37,8 +37,8 @@ class SingleItem extends Component {
                     {todo.title}
                 </h1>
                 <p style={{color: "lightgrey"}}>{this.props.match.params.id}</p>
-                <h5>{todo.details}</h5>
-                <button className={`btn btn-outline-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
+                <h5 className="my-5">{todo.details}</h5>
+                <button className={`mr-5 btn btn-outline-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
                     { todo.complete ? 'Mark Incomplete' : 'Complete Task'}
                 </button>
                 <button className={`btn btn-outline-danger`} onClick={() => this.deleteSingleItem()}>Delete Item</button>

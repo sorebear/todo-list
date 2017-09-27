@@ -11,7 +11,7 @@ class ListItem extends Component {
     render() {
         const { title, complete, _id } = this.props.todoItem;
         return (
-            <li className={`list-group-item list-group-item-${complete ? 'success' : 'danger'} justify-content-between`}>
+            <li className={`list-group-item text-${complete ? 'success' : 'danger'} justify-content-between`}>
                 <Link to={`/view-item/${_id}`} className={complete ? 'text-success' : 'text-danger'}>
                     {title}
                 </Link>

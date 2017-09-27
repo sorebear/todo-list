@@ -5,10 +5,13 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import reduxPromise from 'redux-promise';
 import rootReducer from './reducers';
+import promise from './middleware/promise';
+import lager from './middleware/lager';
+import puppy from './middleware/puppy';
 
 import App from './components/app';
 
-const createStoreWithMiddleware = applyMiddleware(reduxPromise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, lager, puppy)(createStore);
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(rootReducer)}>
