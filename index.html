@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Under Construction</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <style>
+        .body-container {
+            background-image: url(construction.jpg);
+            display: flex;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .body-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-image: linear-gradient(to bottom, #222, black);
+            opacity: .7;
+        }
+        h1 {
+            color: white;
+            position: relative;
+            font-family: 'Oswald', sans-serif;
+            text-shadow: 2px 2px 2px black;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-container">
+        <h1>This Application is Current Being Updated</h1>
+    </div>
+</body>
+</html>
