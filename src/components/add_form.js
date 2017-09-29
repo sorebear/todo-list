@@ -29,7 +29,7 @@ class AddForm extends Component {
         const { handleSubmit, reset } = this.props;
         return (
             <div>
-                <h1>Add Todo Item</h1>
+                <h3 className="my-3">Add Todo Item</h3>
                 <form className="form-group" onSubmit={handleSubmit((vals) => (this.handleAddItem(vals)))}>
                     <Link to="/" className="btn btn-outline-info my-3">Back</Link>
                     <Field name="title" component={this.renderInput} label="Title:"/>

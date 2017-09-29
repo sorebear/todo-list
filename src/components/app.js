@@ -5,7 +5,7 @@ import AddForm from './add_form';
 import SingleItem from './single_item';
 
 const App = () => (
-    <div className="container mt-5 text-center">
+    <div className="container text-center">
         <Route exact path="/" component={TodoList}/>
         <Route path="/add-todo" component={AddForm}/>
         <Route path="/view-item/:id" component={SingleItem}/>

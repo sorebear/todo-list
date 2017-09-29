@@ -14,9 +14,9 @@ class TodoList extends Component {
         if(!todos.length) {
             return (
             <div>
-                <h1 className="my-5">Todo List</h1>
-                <Link to="/add-todo">
-                    <button className="btn btn-ouline-info">Add Item</button>
+                <h3 className="my-5">To do List</h3>
+                <Link to="/add-todo" style={{textDecoration: "none"}}>
+                    <button className="btn btn-outline-info my-3">Add Task</button>
                 </Link>
             </div>
             )
@@ -27,12 +27,10 @@ class TodoList extends Component {
 
         return (
             <div>
-                <h1 className="my-5">Todo List</h1>
+                <h3 className="my-5">To Do List</h3>
                 <ul className="list-group">{todoList}</ul>
                 <Link to="/add-todo" style={{textDecoration: "none"}}>
-                    <div className="add-item">
-                        <i className="fa fa-plus-circle text-success"></i>
-                    </div>
+                    <button className="btn btn-outline-info my-3">Add Task</button>
                 </Link>
             </div>
         )
@@ -40,6 +38,7 @@ class TodoList extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log()
     return {
         todos : state.todos.all
     }

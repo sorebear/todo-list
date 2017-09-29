@@ -3,5 +3,6 @@ export default {
     ADD_TODO: 'add_todo',
     GET_SINGLE: 'get_single',
     TOGGLE_COMPLETE: 'toggle_complete',
-    DELETE_ITEM: 'delete_item'
+    DELETE_ITEM: 'delete_item',
+    CHANGE_BACKGROUND: 'change_background'
 }

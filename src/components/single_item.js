@@ -29,16 +29,15 @@ class SingleItem extends Component {
         }
         return (
             <div>
-                <h1>
-                    <Link to="/">
-                        <i className="fa fa-fast-backward" style={{color: "grey"}}></i> 
-                    </Link>
-                    &nbsp;
-                    {todo.title}
-                </h1>
-                <p style={{color: "lightgrey"}}>{this.props.match.params.id}</p>
-                <h5>{todo.details}</h5>
-                <button className={`btn btn-outline-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
+                <h1 className="mt-5 mb-3">{todo.title}</h1>
+                <Link to="/">
+                    <button className="btn btn-outline-info">Back</button>
+                </Link>
+                <div className="my-5">
+                    <h5>Details:</h5>
+                    <p>{todo.details}</p>
+                </div>
+                <button className={`mr-5 btn btn-outline-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
                     { todo.complete ? 'Mark Incomplete' : 'Complete Task'}
                 </button>
                 <button className={`btn btn-outline-danger`} onClick={() => this.deleteSingleItem()}>Delete Item</button>
