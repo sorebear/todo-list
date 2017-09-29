@@ -3,20 +3,38 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getAll } from '../actions/index';
 import ListItem from './list_item';
+import BackgroundPattern from './imgs/background_pattern';
 import './list_style.css';
 
 class TodoList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            index : 0
+        }
+    }
     componentWillMount() {
         this.props.getAll();
     }
+    changeBackground() {
+        const newIndex = Math.floor(Math.random() * 24)
+        this.setState({
+            index : newIndex
+        })
+    }
     render() {
+        console.log("Current Index: ", this.state.index)
         const { todos } = this.props;
         if(!todos.length) {
             return (
             <div>
-                <h1 className="my-5">Todo List</h1>
-                <Link to="/add-todo">
-                    <button className="btn btn-ouline-info">Add Item</button>
+                <BackgroundPattern index={this.state.index} />
+                <button onClick={() => this.changeBackground()} className="my-5 btn btn-lg btn-secondary">
+                    Todo List
+                </button>
+                <ul className="list-group">{todoList}</ul>
+                <Link to="/add-todo" style={{textDecoration: "none"}}>
+                    <button className="btn btn-secondary my-3">Add Task</button>
                 </Link>
             </div>
             )
@@ -27,12 +45,13 @@ class TodoList extends Component {
 
         return (
             <div>
-                <h1 className="my-5">Todo List</h1>
+                <BackgroundPattern index={this.state.index} />
+                <button onClick={() => this.changeBackground()} className="my-5 btn btn-lg btn-secondary">
+                    Todo List
+                </button>
                 <ul className="list-group">{todoList}</ul>
                 <Link to="/add-todo" style={{textDecoration: "none"}}>
-                    <div className="add-item">
-                        <i className="fa fa-plus-circle text-success"></i>
-                    </div>
+                    <button className="btn btn-secondary my-3">Add Task</button>
                 </Link>
             </div>
         )
@@ -40,6 +59,7 @@ class TodoList extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log()
     return {
         todos : state.todos.all
     }

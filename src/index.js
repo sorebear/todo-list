@@ -7,11 +7,10 @@ import reduxPromise from 'redux-promise';
 import rootReducer from './reducers';
 import promise from './middleware/promise';
 import lager from './middleware/lager';
-import puppy from './middleware/puppy';
 
 import App from './components/app';
 
-const createStoreWithMiddleware = applyMiddleware(promise, lager, puppy)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, lager)(createStore);
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(rootReducer)}>
