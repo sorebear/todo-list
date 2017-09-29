@@ -3,38 +3,20 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getAll } from '../actions/index';
 import ListItem from './list_item';
-import BackgroundPattern from './imgs/background_pattern';
 import './list_style.css';
 
 class TodoList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            index : 0
-        }
-    }
     componentWillMount() {
         this.props.getAll();
     }
-    changeBackground() {
-        const newIndex = Math.floor(Math.random() * 24)
-        this.setState({
-            index : newIndex
-        })
-    }
     render() {
-        console.log("Current Index: ", this.state.index)
         const { todos } = this.props;
         if(!todos.length) {
             return (
             <div>
-                <BackgroundPattern index={this.state.index} />
-                <button onClick={() => this.changeBackground()} className="my-5 btn btn-lg btn-secondary">
-                    Todo List
-                </button>
-                <ul className="list-group">{todoList}</ul>
+                <h3 className="my-5">To do List</h3>
                 <Link to="/add-todo" style={{textDecoration: "none"}}>
-                    <button className="btn btn-secondary my-3">Add Task</button>
+                    <button className="btn btn-outline-info my-3">Add Task</button>
                 </Link>
             </div>
             )
@@ -45,13 +27,10 @@ class TodoList extends Component {
 
         return (
             <div>
-                <BackgroundPattern index={this.state.index} />
-                <button onClick={() => this.changeBackground()} className="my-5 btn btn-lg btn-secondary">
-                    Todo List
-                </button>
+                <h3 className="my-5">To Do List</h3>
                 <ul className="list-group">{todoList}</ul>
                 <Link to="/add-todo" style={{textDecoration: "none"}}>
-                    <button className="btn btn-secondary my-3">Add Task</button>
+                    <button className="btn btn-outline-info my-3">Add Task</button>
                 </Link>
             </div>
         )

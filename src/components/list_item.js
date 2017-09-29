@@ -15,7 +15,6 @@ class ListItem extends Component {
                 <Link to={`/view-item/${_id}`} className={complete ? 'text-success' : 'text-danger'}>
                     {title}
                 </Link>
-                <i className="fa fa-times" onClick={() => this.deleteSingleItem()}></i>
             </li>
         )
     }
