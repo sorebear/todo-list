@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSingleItem, toggleComplete, deleteItem } from '../actions';
+import { getSingleItem, toggleComplete, deleteItem, changeBackground } from '../actions';
 import { Link } from 'react-router-dom';
+import BackgroundPattern from './imgs/background_pattern';
 
 class SingleItem extends Component {
 
     componentWillMount() {
         this.props.getSingleItem(this.props.match.params.id)     
+    }
+
+    changeBackground() {
+        this.props.changeBackground(Math.floor(Math.random() * 22))
     }
 
     handleToggle() {
@@ -28,20 +33,20 @@ class SingleItem extends Component {
             return <h1>...Loading</h1>
         }
         return (
-            <div>
-                <h1>
-                    <Link to="/">
-                        <i className="fa fa-fast-backward" style={{color: "grey"}}></i> 
-                    </Link>
-                    &nbsp;
-                    {todo.title}
-                </h1>
-                <p style={{color: "lightgrey"}}>{this.props.match.params.id}</p>
-                <h5 className="my-5">{todo.details}</h5>
-                <button className={`mr-5 btn btn-outline-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
-                    { todo.complete ? 'Mark Incomplete' : 'Complete Task'}
+            <div className="mt-5" style={{position: "relative"}}>
+                <BackgroundPattern index={this.props.background} />
+                <Link to="/" className="btn btn-primary btn-sm" style={{position: "absolute", left: 0}}>Back</Link>
+                <button onClick={() => this.changeBackground()} className="mb-5 btn btn-lg btn-secondary" style={{fontFamily: 'Oswald'}}>
+                        LIST ITEM
                 </button>
-                <button className={`btn btn-outline-danger`} onClick={() => this.deleteSingleItem()}>Delete Item</button>
+                <h1 className="">{todo.title}</h1>
+                <h5 className="my-5"><em>{todo.details}</em></h5>
+                <div className="d-flex justify-content-center">
+                    <button className={`mr-3 btn btn-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
+                        { todo.complete ? 'Mark Incomplete' : 'Mark Complete'}
+                    </button>
+                    <button className={`btn btn-danger`} onClick={() => this.deleteSingleItem()}>Delete Item</button>
+                </div>
             </div>
         )
     }
@@ -49,8 +54,9 @@ class SingleItem extends Component {
 
 function mapStateToProps(state) {
     return {
-        todo: state.todos.single
+        todo: state.todos.single,
+        background: state.background.background
     }
 }
 
-export default connect(mapStateToProps, {getSingleItem, toggleComplete, deleteItem})(SingleItem);
+export default connect(mapStateToProps, {getSingleItem, toggleComplete, deleteItem, changeBackground})(SingleItem);

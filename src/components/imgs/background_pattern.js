@@ -3,9 +3,7 @@ import React from 'react';
 const backgroundImages = [
     "cloth",
     "cloudy-day",
-    "congruent_outline",
     "congruent_pentagon",
-    "dark_embroidery",
     "dimension",
     "eight_horns",
     "ep_naturalwhite",

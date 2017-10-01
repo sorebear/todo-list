@@ -23,7 +23,7 @@ class ListItem extends Component {
 
 function mapStateToProps(state) {
     return {
-        todo: state.todos.single
+        todo: state.todos.single,
     }
 }
 
