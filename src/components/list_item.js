@@ -15,7 +15,12 @@ class ListItem extends Component {
                 <Link to={`/view-item/${_id}`} className={complete ? 'text-success' : 'text-danger'}>
                     {title}
                 </Link>
-                <i className="fa fa-times" onClick={() => this.deleteSingleItem()}></i>
+                <Link to={`/view-item/${_id}`}>
+                    <button className="btn btn-sm btn-primary">
+                        More Info
+                    </button>
+                </Link>
+                {/* <i className="fa fa-times" onClick={() => this.deleteSingleItem()}></i> */}
             </li>
         )
     }
