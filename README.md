@@ -1,10 +1,10 @@
 # To-Do List
 
-#About
+### About
 
 A simple CRUD to-do list application. This App allows users to add new items, check-off items, and then remove completed items. 
 
-#Technologies Used
+### Technologies Used
 
 React, Redux, Node, Express, Bootstrap, React Router, Axios, Babel, Webpack
 
