@@ -26,7 +26,7 @@ const Header = (props) => {
             <div className="nav-wrapper grey darken-2">
                 <ul className="left">
                     {renderBackButton()}
-                    <li onClick={changeBackground}>
+                    <li className={props.back ? "hide-on-small-only" : ""} onClick={changeBackground}>
                         <Link to="#">
                             <i className="material-icons">
                                 refresh

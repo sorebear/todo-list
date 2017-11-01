@@ -25,7 +25,7 @@ class TodoList extends Component {
 
 	render() {
 		return (
-			<div className="mt-5" style={{ position: "relative" }}>
+			<div className="mt-5 col-md-10 col-lg-8 col-xl-6 center-block" style={{ position: "relative" }}>
 				<BackgroundPattern index={this.props.background} />
                 <Header title="To-Do List"/>
                 <ul className="collection">

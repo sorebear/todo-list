@@ -36,8 +36,8 @@ class SingleItem extends Component {
         return (
             <div className="mt-5" style={{position: "relative"}}>
                 <BackgroundPattern index={this.props.background} />
-                <div className="container">
-                    <div className="col-12">
+                <div className="row">
+                    <div className="col-12 col-sm-10 col-md-8 col-lg-6 center-block">
                         <div className="card">
                             <div className="card-image">
                                 <div className="card-image-overlay">
@@ -52,7 +52,7 @@ class SingleItem extends Component {
                                     <img src={this.itemImage} />
                                 </div>
                                 <span 
-                                    className="card-title"
+                                    className="card-title text-left"
                                     style={{textShadow: "0px 2px 2px black"}}
                                 >
                                     {todo.title}

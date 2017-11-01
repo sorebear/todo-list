@@ -33,7 +33,7 @@ class AddForm extends Component {
     render() {
         const { handleSubmit, reset } = this.props;
         return (
-            <div className="mt-5 text-left" style={{position: "relative"}}>
+            <div className="mt-5 text-left col-md-10 col-lg-8 col-xl-6 center-block" style={{position: "relative"}}>
                 <BackgroundPattern index={this.props.background} />
                 <Header title="Add Item" back={true} />
                 <form className="form-group" onSubmit={handleSubmit((vals) => (this.handleAddItem(vals)))}>
