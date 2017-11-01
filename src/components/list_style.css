@@ -5,6 +5,7 @@ a, a:hover, a:focus {
     text-decoration: none;
 }
 
+<<<<<<< HEAD
 i {
     cursor: pointer;
     vertical-align: middle;
@@ -106,5 +107,7 @@ label {
 .wild_flowers {
     background-image:url('./imgs/background_patterns/wild_flowers.png')
 }
+=======
+>>>>>>> 293110f4d54bfd7c396e4f5771d273550bcad2d1
 
 

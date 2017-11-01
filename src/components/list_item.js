@@ -13,6 +13,7 @@ class ListItem extends Component {
     render() {
         const { title, complete, _id } = this.props.todoItem;
         return (
+<<<<<<< HEAD
             <li 
                 className={`collection-item align-items-center ${complete ? 'grey' : ''} lighten-4`}>
                 <div className="text-left">  
@@ -37,6 +38,12 @@ class ListItem extends Component {
                         </i>
                     </div>
                 </div>
+=======
+            <li className={`list-group-item text-${complete ? 'success' : 'danger'} justify-content-between`}>
+                <Link to={`/view-item/${_id}`} className={complete ? 'text-success' : 'text-danger'}>
+                    {title}
+                </Link>
+>>>>>>> 293110f4d54bfd7c396e4f5771d273550bcad2d1
             </li>
         )
     }
