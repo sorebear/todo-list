@@ -12,6 +12,8 @@ class ListItem extends Component {
     }
     render() {
         const { title, complete, _id } = this.props.todoItem;
+        const maxWidth = window.innerWidth / 14.5;
+        console.log(maxWidth)
         return (
             <li 
                 className={`collection-item align-items-center ${complete ? 'grey' : ''} lighten-4`}>
@@ -26,7 +28,7 @@ class ListItem extends Component {
                     <Link 
                         to={`/view-item/${_id}`} 
                         style={{textDecoration: complete ? "line-through" : "none"}}>
-                        {title}
+                        {title.length < maxWidth ? title : title.substr(0, maxWidth) + "..."}
                     </Link>
                     <div 
                         className="secondary-content" 
