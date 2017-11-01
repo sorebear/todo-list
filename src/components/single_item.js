@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSingleItem, toggleComplete, deleteItem, changeBackground } from '../actions';
 import { Link } from 'react-router-dom';
+import imageArray from './imgs/image_object';
 import BackgroundPattern from './imgs/background_pattern';
+import './list_style.css';
 
 class SingleItem extends Component {
 
@@ -39,13 +41,34 @@ class SingleItem extends Component {
                 <button onClick={() => this.changeBackground()} className="mb-5 btn btn-lg btn-secondary" style={{fontFamily: 'Oswald'}}>
                         LIST ITEM
                 </button>
-                <h1 className="">{todo.title}</h1>
-                <h5 className="my-5"><em>{todo.details}</em></h5>
-                <div className="d-flex justify-content-center">
-                    <button className={`mr-3 btn btn-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
-                        { todo.complete ? 'Mark Incomplete' : 'Mark Complete'}
-                    </button>
-                    <button className={`btn btn-danger`} onClick={() => this.deleteSingleItem()}>Delete Item</button>
+                
+                <div className="container">
+                    <div className="col-12">
+                        <div className="card">
+                            <div className="card-image">
+                                <div className="card-image-overlay">
+                                    <img 
+                                        src={imageArray[Math.floor(Math.random() * imageArray.length)]} 
+                                    />
+                                </div>
+                                <span className="card-title">{todo.title}</span>
+                            </div>
+                            <div className="card-content">
+                                <p>{todo.details}</p>
+                            </div>
+                            <div className="card-action">
+                                <a onClick={() => this.handleToggle()}>
+                                    {todo.complete ? 'Mark Incomplete' : 'Mark Complete'}
+                                </a>
+                                <a 
+                                    onClick={() => this.deleteSingleItem()} 
+                                    style={{marginRight:0, marginLeft:"24px"}}
+                                >
+                                    Delete Item
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

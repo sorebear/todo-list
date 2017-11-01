@@ -25,7 +25,6 @@ const backgroundImages = [
     "wild_flowers"
 ]
 
-
 export default (props) => {
     return (
         <div className={`pattern ${backgroundImages[props.index]}`}></div>

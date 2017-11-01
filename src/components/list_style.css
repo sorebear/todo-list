@@ -7,6 +7,38 @@
     z-index: -1
 }
 
+a, a:hover {
+    color: inherit;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+i {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+i:hover {
+    opacity: .8;
+}
+
+i:active {
+    opacity: 1;
+    text-shadow: 2px 2px 2px darkgrey;
+}
+
+.card-image-overlay::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, #222, black);
+    opacity: .4;
+
+}
+
 .cloth {
     background-image: url('./imgs/cloth.png');
 }
