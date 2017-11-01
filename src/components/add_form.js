@@ -33,14 +33,9 @@ class AddForm extends Component {
     render() {
         const { handleSubmit, reset } = this.props;
         return (
-<<<<<<< HEAD
             <div className="mt-5 text-left" style={{position: "relative"}}>
                 <BackgroundPattern index={this.props.background} />
                 <Header title="Add Item" back={true} />
-=======
-            <div>
-                <h3 className="my-3">Add Todo Item</h3>
->>>>>>> 293110f4d54bfd7c396e4f5771d273550bcad2d1
                 <form className="form-group" onSubmit={handleSubmit((vals) => (this.handleAddItem(vals)))}>
                     <Field name="title" component={this.renderInput} label="Title:"/>
                     <Field name="details" component={this.renderInput} label="Details:"/>
