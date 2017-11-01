@@ -1,15 +1,110 @@
-.add-item {
-    width: 100%;
-    height: 35px;
-    font-size: 0;
-    transition: .5s;
-    position: relative;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+a, a:hover, a:focus {
+    color: inherit;
+    cursor: pointer;
+    vertical-align: middle;
+    text-decoration: none;
 }
 
-.add-item:hover {
-    font-size: 36px;
+i {
+    cursor: pointer;
+    vertical-align: middle;
 }
+
+i:hover {
+    opacity: .8;
+}
+
+i:active {
+    opacity: 1;
+    text-shadow: 2px 2px 2px darkgrey;
+}
+
+.card-image-overlay::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, #222, black);
+    opacity: .4;
+}
+
+label {
+    color: black;
+}
+
+.pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1
+}
+
+.cloth {
+    background-image: url('./imgs/background_patterns/cloth.png');
+}
+
+.dimension {
+    background-image: url('./imgs/background_patterns/dimension.png');
+}
+
+.eight_horns {
+    background-image: url('./imgs/background_patterns/eight_horns.png');
+}
+
+.spiration-light {
+    background-image: url('./imgs/background_patterns/spiration-light.png');
+}
+
+.paisley {
+    background-image: url('./imgs/background_patterns/paisley.png');
+}
+
+.pixel_weave {
+    background-image:url('./imgs/background_patterns/pixel_weave.png')
+}
+
+.pow-star {
+    background-image:url('./imgs/background_patterns/pow-star.png')
+}
+
+.regal {
+    background-image:url('./imgs/background_patterns/regal.png')
+}
+
+.seigaiha {
+    background-image:url('./imgs/background_patterns/seigaiha.png')
+}
+
+.small_steps {
+    background-image:url('./imgs/background_patterns/small_steps.png')
+}
+
+.swirl_pattern {
+    background-image:url('./imgs/background_patterns/swirl_pattern.png')
+}
+
+.symphony {
+    background-image:url('./imgs/background_patterns/symphony.png')
+}
+
+.topography {
+    background-image:url('./imgs/background_patterns/topography.png')
+}
+
+.tree_bark {
+    background-image:url('./imgs/background_patterns/tree_bark.png')
+}
+
+.triangular {
+    background-image:url('./imgs/background_patterns/triangular.png')
+}
+
+.wild_flowers {
+    background-image:url('./imgs/background_patterns/wild_flowers.png')
+}
+
+

@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSingleItem, toggleComplete, deleteItem } from '../actions';
+import { getSingleItem, toggleComplete, deleteItem, changeBackground } from '../actions';
 import { Link } from 'react-router-dom';
+import imageArray from './imgs/image_object';
+import BackgroundPattern from './imgs/background_pattern';
+import './list_style.css';
 
 class SingleItem extends Component {
-
+    constructor(props) {
+        super(props);
+        this.itemImage = imageArray[Math.floor(Math.random() * imageArray.length)];
+    }
     componentWillMount() {
         this.props.getSingleItem(this.props.match.params.id)     
     }
@@ -28,20 +34,51 @@ class SingleItem extends Component {
             return <h1>...Loading</h1>
         }
         return (
-            <div>
-                <h1>
-                    <Link to="/">
-                        <i className="fa fa-fast-backward" style={{color: "grey"}}></i> 
-                    </Link>
-                    &nbsp;
-                    {todo.title}
-                </h1>
-                <p style={{color: "lightgrey"}}>{this.props.match.params.id}</p>
-                <h5>{todo.details}</h5>
-                <button className={`btn btn-outline-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
-                    { todo.complete ? 'Mark Incomplete' : 'Complete Task'}
-                </button>
-                <button className={`btn btn-outline-danger`} onClick={() => this.deleteSingleItem()}>Delete Item</button>
+            <div className="mt-5" style={{position: "relative"}}>
+                <BackgroundPattern index={this.props.background} />
+                <div className="container">
+                    <div className="col-12">
+                        <div className="card">
+                            <div className="card-image">
+                                <div className="card-image-overlay">
+                                    <Link to="/" 
+                                        className="btn-floating btn-large red z-depth-2" 
+                                        style={{position: "absolute", left: "5px", top: "5px"}}
+                                    >
+                                        <i className="material-icons">
+                                            arrow_back
+                                        </i>
+                                    </Link>
+                                    <img src={this.itemImage} />
+                                </div>
+                                <span 
+                                    className="card-title"
+                                    style={{textShadow: "0px 2px 2px black"}}
+                                >
+                                    {todo.title}
+                                </span>
+                            </div>
+                            <div className="card-content">
+                                <p className="text-left">{todo.details}</p>
+                            </div>
+                            <div className="card-action">
+                                <a 
+                                    onClick={() => this.handleToggle()}
+                                    className="red-text"
+                                >
+                                    {todo.complete ? 'Mark Incomplete' : 'Mark Complete'}
+                                </a>
+                                <a 
+                                    onClick={() => this.deleteSingleItem()} 
+                                    className="red-text"
+                                    style={{marginRight:0, marginLeft:"24px"}}
+                                >
+                                    Delete Item
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -49,8 +86,9 @@ class SingleItem extends Component {
 
 function mapStateToProps(state) {
     return {
-        todo: state.todos.single
+        todo: state.todos.single,
+        background: state.background.background
     }
 }
 
-export default connect(mapStateToProps, {getSingleItem, toggleComplete, deleteItem})(SingleItem);
+export default connect(mapStateToProps, {getSingleItem, toggleComplete, deleteItem, changeBackground})(SingleItem);

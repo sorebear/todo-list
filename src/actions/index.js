@@ -46,3 +46,10 @@ export function deleteItem(id) {
         payload: request
     }
 }
+
+export function changeBackground(index) {
+    return {
+        type: types.CHANGE_BACKGROUND,
+        payload: index
+    }
+}

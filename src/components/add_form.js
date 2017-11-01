@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { reduxForm, Field } from 'redux-form';
-import { addTodo } from '../actions/index';
+import { addTodo, changeBackground } from '../actions/index';
 import { connect } from 'react-redux';
+import BackgroundPattern from './imgs/background_pattern';
+import Header from './header';
 
 class AddForm extends Component {
 
@@ -10,6 +12,10 @@ class AddForm extends Component {
         this.props.addTodo(vals).then(() => {
             this.props.history.push('/');
         });
+    }
+
+    changeBackground() {
+        this.props.changeBackground(Math.floor(Math.random() * 18))
     }
 
     renderInput({ input, label, type, meta: { touched, error } }) {
@@ -25,17 +31,33 @@ class AddForm extends Component {
     }
 
     render() {
-        console.log("Props at Render: ", this.props)
         const { handleSubmit, reset } = this.props;
         return (
-            <div>
-                <h1>Add Todo Item</h1>
+            <div className="mt-5 text-left" style={{position: "relative"}}>
+                <BackgroundPattern index={this.props.background} />
+                <Header title="Add Item" back={true} />
                 <form className="form-group" onSubmit={handleSubmit((vals) => (this.handleAddItem(vals)))}>
-                    <Link to="/" className="btn btn-outline-info my-3">Back</Link>
                     <Field name="title" component={this.renderInput} label="Title:"/>
                     <Field name="details" component={this.renderInput} label="Details:"/>
-                    <button className="btn btn-outline-info my-3 mr-3">Add Item</button>
-                    <button type="button" className="btn btn-outline-danger" onClick={reset}>Reset</button>
+                    <div className="center">
+                        <button 
+                            onClick={reset}
+                            type="button"
+                            className="btn-floating btn-large red my-3 mr-3"
+                        >
+                            <i className="material-icons">
+                                replay
+                            </i>
+                        </button>
+                        <button 
+                            onClick={handleSubmit((vals) => (this.handleAddItem(vals)))}
+                            className="btn-floating btn-large red my-3 mr-3"
+                        >
+                            <i className="material-icons">
+                                add
+                            </i>
+                        </button>
+                    </div>
                 </form>
             </div>
         )
@@ -58,5 +80,10 @@ AddForm = reduxForm({
     validate
 })(AddForm);
 
+function mapStateToProps(state) {
+    return {
+        background: state.background.background
+    }
+}
 
-export default connect(null, {addTodo})(AddForm);
+export default connect(mapStateToProps, {addTodo, changeBackground})(AddForm);
