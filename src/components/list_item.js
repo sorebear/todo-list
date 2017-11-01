@@ -13,7 +13,6 @@ class ListItem extends Component {
     render() {
         const { title, complete, _id } = this.props.todoItem;
         const maxWidth = window.innerWidth / 14.5;
-        console.log(maxWidth)
         return (
             <li 
                 className={`collection-item align-items-center ${complete ? 'grey' : ''} lighten-4`}>
