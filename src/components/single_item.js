@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSingleItem, toggleComplete, deleteItem, changeBackground } from '../actions';
 import { Link } from 'react-router-dom';
-import imageArray from './imgs/image_object';
 import BackgroundPattern from './imgs/background_pattern';
+import { getSingleItem, toggleComplete, deleteItem } from '../actions';
+import imageArray from './imgs/image_object';
 import './list_style.css';
 
 class SingleItem extends Component {
@@ -28,7 +28,6 @@ class SingleItem extends Component {
     }
 
     render() {
-        console.log("Single Item Props: ", this.props)
         const { todo } = this.props
         if (!todo) {
             return <h1>...Loading</h1>
@@ -42,8 +41,8 @@ class SingleItem extends Component {
                             <div className="card-image">
                                 <div className="card-image-overlay">
                                     <Link to="/" 
-                                        className="btn-floating btn-large red z-depth-2" 
-                                        style={{position: "absolute", left: "5px", top: "5px"}}
+                                        className={`btn-floating red z-depth-2 ${window.innerWidth > 568 ? 'btn-large' : ''}`} 
+                                        style={{position: "absolute", left: "10px", top: "10px"}}
                                     >
                                         <i className="material-icons">
                                             arrow_back
@@ -61,21 +60,25 @@ class SingleItem extends Component {
                             <div className="card-content">
                                 <p className="text-left">{todo.details}</p>
                             </div>
-                            <div className="card-action">
-                                <a 
-                                    onClick={() => this.handleToggle()}
-                                    className="red-text"
-                                >
-                                    {todo.complete ? 'Mark Incomplete' : 'Mark Complete'}
-                                </a>
-                                <a 
-                                    onClick={() => this.deleteSingleItem()} 
-                                    className="red-text"
-                                    style={{marginRight:0, marginLeft:"24px"}}
-                                >
-                                    Delete Item
-                                </a>
-                            </div>
+                        </div>
+                        <div className="center">
+                            <button 
+                                onClick={this.handleToggle.bind(this)}
+                                type="button"
+                                className={`btn-floating btn-large my-3 mr-3 ${todo.complete ? 'green' : 'grey'}`}
+                            >
+                                <i className="material-icons">
+                                    check
+                                </i>
+                            </button>
+                            <button 
+                                onClick={this.deleteSingleItem.bind(this)}
+                                className="btn-floating btn-large red my-3 mr-3"
+                            >
+                                <i className="material-icons">
+                                    close
+                                </i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -91,4 +94,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {getSingleItem, toggleComplete, deleteItem, changeBackground})(SingleItem);
+export default connect(mapStateToProps, {getSingleItem, toggleComplete, deleteItem})(SingleItem);

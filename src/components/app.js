@@ -6,6 +6,7 @@ import SingleItem from './single_item';
 
 const App = () => (
     <div className="text-center">
+        
         <Route exact path="/" component={TodoList}/>
         <Route path="/add-todo" component={AddForm}/>
         <Route path="/view-item/:id" component={SingleItem}/>
