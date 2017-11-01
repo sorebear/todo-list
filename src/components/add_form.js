@@ -4,6 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 import { addTodo, changeBackground } from '../actions/index';
 import { connect } from 'react-redux';
 import BackgroundPattern from './imgs/background_pattern';
+import Header from './header';
 
 class AddForm extends Component {
 
@@ -14,7 +15,7 @@ class AddForm extends Component {
     }
 
     changeBackground() {
-        this.props.changeBackground(Math.floor(Math.random() * 22))
+        this.props.changeBackground(Math.floor(Math.random() * 18))
     }
 
     renderInput({ input, label, type, meta: { touched, error } }) {
@@ -34,17 +35,29 @@ class AddForm extends Component {
         return (
             <div className="mt-5 text-left" style={{position: "relative"}}>
                 <BackgroundPattern index={this.props.background} />
-                <Link to="/" className="btn btn-sm btn-primary" style={{position: "absolute"}}>Back</Link>
-                <div className="justify-content-center d-flex">
-                    <button onClick={() => this.changeBackground()} className="mb-4 btn btn-lg btn-secondary" style={{fontFamily: "Oswald"}}>
-                        ADD ITEM
-                    </button>
-                </div>
+                <Header title="Add Item" back={true} />
                 <form className="form-group" onSubmit={handleSubmit((vals) => (this.handleAddItem(vals)))}>
                     <Field name="title" component={this.renderInput} label="Title:"/>
                     <Field name="details" component={this.renderInput} label="Details:"/>
-                    <button className="btn btn-success my-3 mr-3">Add Item</button>
-                    <button type="button" className="btn btn-danger my-3" onClick={reset}>Reset</button>
+                    <div className="center">
+                        <button 
+                            onClick={reset}
+                            type="button"
+                            className="btn-floating btn-large red my-3 mr-3"
+                        >
+                            <i className="material-icons">
+                                replay
+                            </i>
+                        </button>
+                        <button 
+                            onClick={handleSubmit((vals) => (this.handleAddItem(vals)))}
+                            className="btn-floating btn-large red my-3 mr-3"
+                        >
+                            <i className="material-icons">
+                                add
+                            </i>
+                        </button>
+                    </div>
                 </form>
             </div>
         )

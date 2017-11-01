@@ -7,13 +7,12 @@ import BackgroundPattern from './imgs/background_pattern';
 import './list_style.css';
 
 class SingleItem extends Component {
-
+    constructor(props) {
+        super(props);
+        this.itemImage = imageArray[Math.floor(Math.random() * imageArray.length)];
+    }
     componentWillMount() {
         this.props.getSingleItem(this.props.match.params.id)     
-    }
-
-    changeBackground() {
-        this.props.changeBackground(Math.floor(Math.random() * 22))
     }
 
     handleToggle() {
@@ -37,31 +36,41 @@ class SingleItem extends Component {
         return (
             <div className="mt-5" style={{position: "relative"}}>
                 <BackgroundPattern index={this.props.background} />
-                <Link to="/" className="btn btn-primary btn-sm" style={{position: "absolute", left: 0}}>Back</Link>
-                <button onClick={() => this.changeBackground()} className="mb-5 btn btn-lg btn-secondary" style={{fontFamily: 'Oswald'}}>
-                        LIST ITEM
-                </button>
-                
                 <div className="container">
                     <div className="col-12">
                         <div className="card">
                             <div className="card-image">
                                 <div className="card-image-overlay">
-                                    <img 
-                                        src={imageArray[Math.floor(Math.random() * imageArray.length)]} 
-                                    />
+                                    <Link to="/" 
+                                        className="btn-floating btn-large red z-depth-2" 
+                                        style={{position: "absolute", left: "5px", top: "5px"}}
+                                    >
+                                        <i className="material-icons">
+                                            arrow_back
+                                        </i>
+                                    </Link>
+                                    <img src={this.itemImage} />
                                 </div>
-                                <span className="card-title">{todo.title}</span>
+                                <span 
+                                    className="card-title"
+                                    style={{textShadow: "0px 2px 2px black"}}
+                                >
+                                    {todo.title}
+                                </span>
                             </div>
                             <div className="card-content">
-                                <p>{todo.details}</p>
+                                <p className="text-left">{todo.details}</p>
                             </div>
                             <div className="card-action">
-                                <a onClick={() => this.handleToggle()}>
+                                <a 
+                                    onClick={() => this.handleToggle()}
+                                    className="red-text"
+                                >
                                     {todo.complete ? 'Mark Incomplete' : 'Mark Complete'}
                                 </a>
                                 <a 
                                     onClick={() => this.deleteSingleItem()} 
+                                    className="red-text"
                                     style={{marginRight:0, marginLeft:"24px"}}
                                 >
                                     Delete Item

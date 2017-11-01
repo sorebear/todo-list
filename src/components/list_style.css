@@ -1,16 +1,8 @@
-.pattern {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1
-}
-
-a, a:hover {
+a, a:hover, a:focus {
     color: inherit;
     cursor: pointer;
     vertical-align: middle;
+    text-decoration: none;
 }
 
 i {
@@ -36,95 +28,83 @@ i:active {
     bottom: 0;
     background-image: linear-gradient(to bottom, #222, black);
     opacity: .4;
+}
 
+label {
+    color: black;
+}
+
+.pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1
 }
 
 .cloth {
-    background-image: url('./imgs/cloth.png');
-}
-
-.cloudy-day {
-    background-image: url('./imgs/cloudy-day.png');
-}
-
-.congruent_pentagon {
-    background-image: url('./imgs/congruent_pentagon.png');
+    background-image: url('./imgs/background_patterns/cloth.png');
 }
 
 .dimension {
-    background-image: url('./imgs/dimension.png');
+    background-image: url('./imgs/background_patterns/dimension.png');
 }
 
 .eight_horns {
-    background-image: url('./imgs/eight_horns.png');
+    background-image: url('./imgs/background_patterns/eight_horns.png');
 }
 
-.ep_naturalwhite {
-    background-image: url('./imgs/ep_naturalwhite.png');
+.spiration-light {
+    background-image: url('./imgs/background_patterns/spiration-light.png');
 }
 
 .paisley {
-    background-image: url('./imgs/paisley.png');
+    background-image: url('./imgs/background_patterns/paisley.png');
 }
 
 .pixel_weave {
-    background-image:url('./imgs/pixel_weave.png')
+    background-image:url('./imgs/background_patterns/pixel_weave.png')
 }
 
 .pow-star {
-    background-image:url('./imgs/pow-star.png')
+    background-image:url('./imgs/background_patterns/pow-star.png')
 }
 
 .regal {
-    background-image:url('./imgs/regal.png')
-}
-
-.restaurant {
-    background-image:url('./imgs/restaurant.png')
-}
-
-.sakura {
-    background-image:url('./imgs/sakura.png')
+    background-image:url('./imgs/background_patterns/regal.png')
 }
 
 .seigaiha {
-    background-image:url('./imgs/seigaiha.png')
-}
-
-.skulls {
-    background-image:url('./imgs/skulls.png')
+    background-image:url('./imgs/background_patterns/seigaiha.png')
 }
 
 .small_steps {
-    background-image:url('./imgs/small_steps.png')
+    background-image:url('./imgs/background_patterns/small_steps.png')
 }
 
 .swirl_pattern {
-    background-image:url('./imgs/swirl_pattern.png')
+    background-image:url('./imgs/background_patterns/swirl_pattern.png')
 }
 
 .symphony {
-    background-image:url('./imgs/symphony.png')
+    background-image:url('./imgs/background_patterns/symphony.png')
 }
 
 .topography {
-    background-image:url('./imgs/topography.png')
+    background-image:url('./imgs/background_patterns/topography.png')
 }
 
 .tree_bark {
-    background-image:url('./imgs/tree_bark.png')
+    background-image:url('./imgs/background_patterns/tree_bark.png')
 }
 
 .triangular {
-    background-image:url('./imgs/triangular.png')
-}
-
-.upfeathers {
-    background-image:url('./imgs/upfeathers.png')
+    background-image:url('./imgs/background_patterns/triangular.png')
 }
 
 .wild_flowers {
-    background-image:url('./imgs/wild_flowers.png')
+    background-image:url('./imgs/background_patterns/wild_flowers.png')
 }
 
 
