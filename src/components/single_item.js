@@ -34,7 +34,6 @@ class SingleItem extends Component {
             return <h1>...Loading</h1>
         }
         return (
-<<<<<<< HEAD
             <div className="mt-5" style={{position: "relative"}}>
                 <BackgroundPattern index={this.props.background} />
                 <div className="container">
@@ -80,21 +79,6 @@ class SingleItem extends Component {
                         </div>
                     </div>
                 </div>
-=======
-            <div>
-                <h1 className="mt-5 mb-3">{todo.title}</h1>
-                <Link to="/">
-                    <button className="btn btn-outline-info">Back</button>
-                </Link>
-                <div className="my-5">
-                    <h5>Details:</h5>
-                    <p>{todo.details}</p>
-                </div>
-                <button className={`mr-5 btn btn-outline-${ todo.complete ? 'danger' : 'success'}`} onClick={() => this.handleToggle()}>
-                    { todo.complete ? 'Mark Incomplete' : 'Complete Task'}
-                </button>
-                <button className={`btn btn-outline-danger`} onClick={() => this.deleteSingleItem()}>Delete Item</button>
->>>>>>> 293110f4d54bfd7c396e4f5771d273550bcad2d1
             </div>
         )
     }
